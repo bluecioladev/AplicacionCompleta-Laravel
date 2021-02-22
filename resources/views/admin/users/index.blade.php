@@ -34,7 +34,7 @@
         <tr>
             <td>{{$user->id}}</td>
             @if ($user->foto)
-            <td><img width="120px" src="/images/{{$user->foto->ruta_foto }}" /></td>//operador ternario $foto si tiene
+            <td><img width="120px" src="/images/{{$user->foto->ruta_foto }}" /></td>
             @else
             <td>Sin Foto</td>
             @endif
