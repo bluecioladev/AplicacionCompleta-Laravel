@@ -36,10 +36,10 @@
             @if ($user->foto)
             <td><img width="120px" src="/images/{{$user->foto->ruta_foto }}" /></td>
             @else
-            <td>Sin Foto</td>
+            <td><img width="120px" src="/images/generico.png" alt="sin foto"></td>
             @endif
             <td>{{$user->role_id}}</td>
-            <td>{{$user->name}}</td>
+            <td><a href="{{route('users.edit',$user->id)}}">{{$user->name}}</a></td>
             <td>{{$user->email}}</td>
             <td>{{$user->created_at}}</td>
             <td>{{$user->updated_at}}</td>
