@@ -17,88 +17,28 @@
 <body>
     <h1>Pagina para Editar Usuarios</h1>
 
-    {!! Form::model($user,['method' => 'PATCH','Action'=>'AdminUsersController@update',$user->id,'files'=>true]) !!}
+    <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
 
-    <table>
+        Nombre: <br>
+        <input type="text" name="name" id="name" value="{{$user->name}}"><br>
+        Email: <br>
+        <input type="text" name="email" id="email" value="{{$user->email}}"><br>
+        Verificar email: <br>
+        <input type="text" name="verificar_email" id="email_verified_at" value="{{$user->email_verified_at}}"><br>
+        Role: <br>
+        <input type="text" name="role_id" id="role_id" value="{{$user->role_id}}"><br>
 
-        <tr>
-            <img src="/images/{{$user->foto ? $user->foto->ruta_foto : 'generico.png'}}" width="120px"
-             alt="no-foto">
-
-
-        </tr>
-
-        <tr>
-            <td>
-                {!! Form::label('name', 'Nombre:')!!}
-            </td>
-            <td>
-                {!!Form::text('name')!!}
-            </td>
-        </tr>
-
-
-
-
-
-
-
-        <tr>
-            <td>
-                {!! Form::label('email', 'E-Mail:')!!}
-            </td>
-            <td>
-                {!!Form::text('email')!!}
-            </td>
-        </tr>
-
-
-
-        <tr>
-            <td>
-                {!! Form::label('email', 'Verificar Email')!!}
-            </td>
-            <td>
-                {!!Form::text('email_verified_at')!!}
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>
-                {!! Form::label('role', 'Role')!!}
-            </td>
-            <td>
-                {!!Form::text('role_id')!!}
-            </td>
-        </tr>
-
-
-
-
-        <tr>
-
-            <td colspan="2">
-                {!!Form::file('foto_id')!!}
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                {!! Form::submit('Modificar usuario')!!}
-            </td>
-
-
-            <td>
-                {!! Form::reset('Borrar')!!}
-            </td>
-
-        </tr>
-
-    </table>
-
-    {!! Form::close() !!}
+        @if($user->foto)
+        <td> <img src="/images/{{$user->foto->ruta_foto}}" width="150" /></td>
+        @else
+        <td><img src="/images/generico.png" width="150" /></td>
+        @endif
+        <input type="file" name="foto_id" id="foto_id"><br>
+        <input type="submit" value="Actualizar">
+        <input type="reset" value="Reset">
+    </form>
 
 
 </body>

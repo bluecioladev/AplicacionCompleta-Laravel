@@ -26,3 +26,4 @@ Route::resource('admin/users','App\Http\Controllers\AdminUsersController');
 Route::post('admin/users/create','App\Http\Controllers\AdminUsersController@store')->name('admin.create');
 
 //Route::patch('admin/users/edit','App\Http\Controllers\AdminUsersController@update')->name('admin.edit');
+
