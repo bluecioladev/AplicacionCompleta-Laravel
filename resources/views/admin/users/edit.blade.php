@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,25 @@
     <title>Document</title>
 </head>
 <style>
-body{
+    body {
 
-    background-color:burlywood;
-}
-
+        background-color: burlywood;
+    }
 </style>
+
 <body>
     <h1>Pagina para Editar Usuarios</h1>
 
     {!! Form::model($user,['method' => 'PATCH','Action'=>'AdminUsersController@update',$user->id,'files'=>true]) !!}
 
     <table>
+
+        <tr>
+            <img src="/images/{{$user->foto ? $user->foto->ruta_foto : 'generico.png'}}" width="120px"
+             alt="no-foto">
+
+
+        </tr>
 
         <tr>
             <td>
@@ -30,7 +38,7 @@ body{
         </tr>
 
 
-        
+
 
 
 
@@ -65,17 +73,16 @@ body{
             </td>
         </tr>
 
-        <tr>
-            <td>
-                {!!Form::label ('foto_id','Foto:')!!}
 
-            </td>
-            <td>
+
+
+        <tr>
+
+            <td colspan="2">
                 {!!Form::file('foto_id')!!}
             </td>
 
         </tr>
-
 
         <tr>
             <td>
@@ -95,4 +102,5 @@ body{
 
 
 </body>
+
 </html>
