@@ -40,6 +40,12 @@
         <input type="reset" value="Reset">
     </form>
 
+    <form action="{{ route('users.destroy', $user->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Eliminar Usuario">
+
+    </form>
 
 </body>
 
