@@ -11,6 +11,13 @@
 </head>
 
 <body>
+
+    @if(Session::has('usuario_borrado'))
+
+      <p class="bg-danger"> {{session('usuario_borrado')}}</p>
+
+    @endif
+
     <h1 style="text-align: center ; margin: 50px 0" >Pagina principal</h1>
 
     <table width="900" class="table">

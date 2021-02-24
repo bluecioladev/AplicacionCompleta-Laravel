@@ -8,6 +8,9 @@ use App\Models\User;
 
 use App\Models\Foto;
 
+use Illuminate\Support\Facades\Session;
+
+
 
 class AdminUsersController extends Controller
 {
@@ -139,6 +142,7 @@ class AdminUsersController extends Controller
         $user->delete();
         $foto->delete();
 
+        Session::flash('usuario_borrado','El usuario ha sido eliminado con exito');
         return redirect('/admin/users');
 
 
